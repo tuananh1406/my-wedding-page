@@ -1,0 +1,122 @@
+body {
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.reference {
+  z-index: 1;
+  position: fixed;
+  bottom: 1em;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+  mix-blend-mode: overlay;
+}
+
+.heart {
+  position: relative;
+  width: 100vmin;
+  height: 100vmin;
+  background: #000;
+  filter: brightness(400%);
+  overflow: hidden;
+}
+.heart svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  stroke-dasharray: 75px;
+  stroke-dashoffset: 0px;
+  animation: heart-draw 2s linear infinite;
+}
+.heart svg:nth-child(1) {
+  filter: blur(1em);
+}
+.heart .gradient {
+  width: 125%;
+  height: 125%;
+  transform: translate(-12.5%, -12.5%);
+  background: linear-gradient(180deg, #fe77d8 0%, #fe77d8 50%, #6cb3e4 50%);
+  mix-blend-mode: multiply;
+  animation: gradient 2s linear infinite;
+}
+
+.background {
+  position: absolute;
+  width: 133vmax;
+  height: 133vmax;
+  background: radial-gradient(circle at 50% 25%, #fe77d8ff, #0000), radial-gradient(circle at 50% 75%, #6cb3e4ff, #0000);
+  background-blend-mode: multiply;
+  opacity: 0.33;
+  animation: background 2s linear infinite;
+}
+
+@keyframes heart-draw {
+  from {
+    stroke-dashoffset: 0px;
+  }
+  to {
+    stroke-dashoffset: 300px;
+  }
+}
+@keyframes gradient {
+  to {
+    transform: translate(-12.5%, -12.5%) rotate(360deg);
+  }
+}
+@keyframes background {
+  to {
+    transform: rotate(360deg);
+  }
+}
+ul#countdown {
+  /* position: relative; */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40%;
+  margin: 0 auto;
+  padding: 15px 0 20px 0;
+  color: #fff;
+  border: 1px solid #adafb2;
+  border-width: 1px 0;
+  overflow: hidden;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-weight: bold;
+}
+ul#countdown li {
+  margin: 0 -3px 0 0;
+  padding: 0;
+  display: inline-block;
+  font-size: 72px;
+  font-size: 6vw;
+  text-align: center;
+}
+ul#countdown li .label {
+  color: #adafb2;
+  vertical-align: top;
+  font-size: 18px;
+  font-size: 1.5vw;
+  text-transform: uppercase;
+}
+ul#countdown li .number {
+  vertical-align: top;
+}
+
+div.clock {
+  width: 70%;
+  position: absolute;
+  top: 50%;
+  left: 15%;
+}

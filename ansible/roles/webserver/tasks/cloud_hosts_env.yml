@@ -1,0 +1,36 @@
+- name: Install deps 
+  apt:
+    update_cache: yes
+    state: present
+    name: [
+    'net-tools',
+  ]
+
+- name: Lấy thông tin network interface
+  command: route
+  register: route_results
+  changed_when: false
+
+- name: Lấy danh sách interfaces vào biến
+  set_fact:
+    interfaces: "{{ route_results.stdout.split('\n') }}"
+
+- name: Lấy dòng interface có default
+  set_fact:
+    wan_interface_result: "{{ item }}"
+  when: "item.startswith('default')"
+  with_items: "{{ interfaces }}"
+
+- name: Lưu wan_interface vào biến
+  set_fact:
+    WAN_INTERFACE: "{{ wan_interface_result.split(' ')[-1] }}"
+
+- name: Lấy thông tin ipv4 của {{ WAN_INTERFACE }}
+  set_fact:
+    WAN_IPADDRESS: "{{ hostvars[inventory_hostname]['ansible_%s' | format(WAN_INTERFACE)]['ipv4']['address'] }}"
+
+- name: Thêm cloud ipaddress vào file debug
+  ansible.builtin.lineinfile:
+    path: "{{ CODE_PATH }}/debug.env"
+    regexp: '^CLOUD_HOSTS='
+    line: CLOUD_HOSTS={{ WAN_IPADDRESS }}

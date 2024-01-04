@@ -1,0 +1,11 @@
+test-1 ansible_host=192.168.64.2 ansible_user=ubuntu
+
+[develop]
+cloud-test-1 ansible_host=cloud-test-1 ansible_user=root
+
+[staging]
+cloud-test-1 ansible_host=cloud-test-1 ansible_user=root
+
+[production]
+webserver-2 ansible_host=webserver-2 ansible_user=ubuntu
+webserver-3 ansible_host=webserver-3 ansible_user=ubuntu

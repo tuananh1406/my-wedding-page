@@ -1,0 +1,1075 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+#0.1	Theme Reset Style
+#0.2	Global Elements 
+
+
+=========================================================
+1.	index page
+=========================================================
+#1.1	header
+#1.2	wedding-announcement
+#1.3	love-story
+#1.4	video-bg
+#1.5	event
+#1.6	groomsmen-bridesmaids
+#1.7	gift-registration
+#1.8	rsvp
+#1.9	journal
+#1.10	wedd-location
+#1.11	footer
+
+
+=========================================================
+2.	blog
+=========================================================
+#2.1	blog-content
+
+
+=========================================================
+3.	blog-details
+=========================================================
+#3.1	blog-details-content
+
+
+=========================================================
+4.	blog-masonry
+=========================================================
+#4.1	blog-masonry-content
+
+
+=========================================================
+5.	comming-soon
+=========================================================
+#5.1	comming-soon-content
+
+
+
+
+*/
+
+
+
+/*--------------------------------------------------------------
+#0.2	Global Elements 
+--------------------------------------------------------------*/
+@media only screen and (max-width: 991px) {
+	.banar .banar-title {
+	    top: 50%;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.section-padding {
+		padding: 100px 0;
+	}
+
+	.section-heading {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	.section-heading h2 {
+		font-size: 35px;
+		line-height: 31px;
+	}
+
+	.section-heading p {
+		font-size: 16px;
+	}
+
+	.banar .banar-title {
+	    top: 50% !important;
+	    height: auto !important;
+	    -webkit-transform: translateY(-50%);
+	    transform: translateY(-50%);
+	}
+
+	.banar .banar-title h1 {
+		font-size: 35px;
+	}
+
+	.banar .banar-title p {
+		font-size: 16px;
+		padding: 0 10px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	h3 {
+		font-size: 25px !important;
+	}
+
+	.section-padding {
+		padding: 90px 0;
+	}
+
+	.section-heading {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.section-heading h2 {
+		background-position: center 40px;
+		font-size: 30px;
+	}
+
+	.section-heading p {
+		font-size: 15px;
+	}
+}
+
+
+
+
+/*=========================================================
+1.	index page
+=========================================================*/
+
+/*--------------------------------------------------------------
+#1.1	header
+--------------------------------------------------------------*/
+@media only screen and (max-width: 1199px) {
+	#navbar a {
+		padding-left: 10px;
+		padding-right: 10px;
+	} 
+}
+
+@media only screen and (max-width: 991px) {
+	/*navbar*/
+	header .navbar {
+		background: url(../images/header-sm-bg.png) repeat-x;
+		height: 95px;
+	}
+
+	header .smaller {
+		height: 75px;
+	}
+
+	#navbar a {
+		font-size: 15px;
+	} 
+
+	header .navbar .container {
+		padding: 0;
+	}
+
+
+	/*theme-logo*/
+	header .theme-logo a > div {
+		width: 80px;
+		height: 80px;
+	}
+
+	header .theme-logo span {
+		font-size: 18px;
+	}
+
+	header .theme-logo a > div div span:first-child {
+		margin-bottom: 10px;
+	}
+
+
+	/*title*/
+	header .title-bg {
+		background: url(../images/title-sm-bg.png) no-repeat center center;
+		height: 262px;
+		top: 70%;
+		-webkit-transform: translate(-50%, -70%);
+		transform: translate(-50%, -70%);
+	}
+
+	header .title h1 {
+		font-size: 25px;
+		margin: 15px 0 20px;
+	}
+
+	header .title h2 {
+		font-size: 70px;
+		margin: 0 0 15px;
+	}
+
+	header .title .date {
+		font-size: 25px;
+	}
+
+
+	/*slider*/
+	header .slider .owl-buttons .owl-prev,
+	header .slider .owl-buttons .owl-next {
+		top: 58%;
+	}
+
+}
+
+@media only screen and (max-width: 767px) {
+	/*navbar*/
+	header .navbar {
+		background: none;
+		height: auto;
+		overflow: hidden;
+	}
+
+	header .navbar-header {
+		background: url(../images/header-xs-bg.png) repeat-x;
+		height: 70px;
+	}
+
+	header .navbar-header button {
+		border: 1px solid #fff;
+		right: 15px;
+		top: 10px;
+	}
+
+	header .navbar-header button span {
+		background: #fff;
+	}
+
+	#navbar {
+		border-top: 0;
+	}
+
+	#navbar .navbar-nav {
+		background: #df2248;
+		overflow-Y: scroll;
+		overflow-x: hidden;
+		margin: 0;
+		top: 0;
+		border-top: 1px solid #fff;
+	}
+
+	#navbar a {
+		color: #fff;
+		font-size: 15px;
+		padding: 10px 05px 10px 25px;
+	} 
+
+	#navbar a:hover {
+		background-color:  #f44d6e !important;
+	}
+
+
+	/*drop-dwon*/
+	#navbar .dropdown-menu {
+		background-color: #fff;
+		width: 100%;
+		border-top: 0;
+		left: 45px;
+	}
+
+	header .navbar-brand {
+		font-family: 'Lobster', cursive;
+		width: auto;
+		height: auto;
+		color: #fff;	
+		font-size: 22px;
+		padding: 0;
+		display: inline-block;
+		margin: 25px 0 0 35px;
+	}
+
+
+	header .title-bg {
+		top: 60%;
+		-webkit-transform: translate(-50%, -60%);
+		transform: translate(-50%, -60%);
+	}
+
+
+	/*slider*/
+	header .slider .owl-buttons .owl-prev,
+	header .slider .owl-buttons .owl-next {
+		top: 52%;
+	}
+
+	header .slider .owl-buttons .owl-prev {
+		left: 15px;
+	}
+
+	header .slider .owl-buttons .owl-next {
+		right: 15px;
+	}
+}
+
+@media only screen and (max-width: 535px) {
+	/*slider*/
+	header .slider {
+		min-height: 600px;
+	}
+
+	header .slider .slide-item {
+		height: 600px;
+	}
+
+
+	/*title*/
+	header .title-bg {
+		background: url(../images/title-xs-bg.png) no-repeat center center;
+		height: 183px;
+	}
+
+	header .title h1 {
+		font-size: 18px;
+		margin: 10px 0 12px;
+	}
+
+	header .title h2 {
+		font-size: 50px;
+		margin: 0 0 7px;
+	}
+
+	header .title .date {
+		font-size: 18px;
+	}
+
+
+	/*pagination*/
+	header .slider .owl-buttons .owl-prev,
+	header .slider .owl-buttons .owl-next {
+		display: none !important;
+	}
+
+	header .slider .owl-pagination {
+		display: block !important;
+	}
+
+	header .slider .owl-controls {
+		width: 100%;
+		position: absolute;
+		bottom: 100px;
+	}
+
+	header .slider .owl-controls span {
+		background: #df2349 !important;
+	}
+}
+
+
+
+/*--------------------------------------------------------------
+#1.2	wedding-announcement
+--------------------------------------------------------------*/
+@media only screen and (max-width: 1199px) {
+	.wedding-announcement .content h3 {
+		display: none;
+	}
+
+	.wedding-announcement .left-col,
+	.wedding-announcement .right-col {
+		background: none;
+	}
+
+	.wedding-announcement .frame img:last-child {
+		top: 8px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.wedding-announcement .frame img:last-child {
+		width: 100%;
+		width: 94%;
+		top: 8px;
+		left: 9px;
+	}
+
+	.wedding-announcement .heart {
+		background: url(../images/home/announcement/announcement-heart-sm.png) no-repeat center center;
+		width: 60px;
+		height: 69px;
+		top: 55%;
+		left: 45%;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.wedding-announcement {
+		background-image: none, url(../images/home/announcement/announcement-bg.png);
+	}
+
+	.wedding-announcement .heart {
+		display: none;
+	}
+
+	.wedding-announcement .content > .col .col {
+		width: 100%;
+		margin-bottom: 100px;
+	}
+
+	.wedding-announcement .right-col .col {
+		margin-bottom: 0 !important;
+	}
+
+	.wedding-announcement .frame {
+		width: 70%;
+		margin: 0 auto;
+	}
+
+	.wedding-announcement .frame img:first-child {
+		visibility: hidden;
+	}
+
+	.wedding-announcement .singnature {
+		font-size: 25px;
+		margin: 20px 0 0;
+	}
+}
+
+
+
+/*--------------------------------------------------------------
+#1.3	love-story
+--------------------------------------------------------------*/
+@media only screen and (max-width: 1199px) {
+	.love-story .frame img:first-child {
+		width: 237px;
+	}
+}
+
+@media only screen and (max-width: 991px) {
+	.love-story .middle .frame {
+		margin: 0 24px 0 0;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.love-story .content .row .col .col:last-child {
+		padding-right: 15px;
+	}
+
+	.love-story .padding-left {
+		padding-left: 15px !important;
+		margin-right: 0;
+	}
+
+	.love-story .content h3 {
+		font-size: 25px;
+	}
+
+	.love-story .content h4 {
+		font-size: 20px;
+	}
+
+
+	/*frame*/
+	.love-story .frame img:first-child {
+		display: none;
+	}
+
+	.love-story .frame img:last-child {
+		position: static;
+	}
+
+	.love-story .frame {
+		margin-left: 15px;
+	}
+
+	.love-story .middle .frame {
+		margin-right: 15px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.love-story .content .col-xs-12 .col {
+		width: 100%;
+		padding-right: 6px;
+	}
+
+	.love-story .frame {
+		width: 100%;
+		margin: 0 !important;
+	}
+
+	.love-story h4 + p {
+		padding-right: 20px;
+	}
+
+	.love-story .middle-row h4 + p {
+		padding-right: 0;
+		padding-left: 20px;
+	}
+}
+
+
+
+/*--------------------------------------------------------------
+#1.4	video-bg
+--------------------------------------------------------------*/
+@media only screen and (max-width: 767px) {
+	.video-bg {
+		height: 300px;
+	}
+
+	.video-bg a {
+		width: 50px;
+		height: 50px;
+	}
+
+	.video-bg a i {
+		font-size: 20px;
+	}
+}
+
+
+
+/*--------------------------------------------------------------
+#1.5	event
+--------------------------------------------------------------*/
+@media only screen and (max-width: 991px) {
+	.event .content {
+		text-align: center;
+	}
+
+	.event .content .row {
+		margin-bottom: 100px;
+	}
+
+	.event .event-frame {
+		left: 50%;
+		-webkit-transform: translateX(-50%);
+		transform: translateX(-50%);
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.event .content .row span {
+		font-size: 14px;
+		font-weight: bold;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.event h3 + p + p {
+		text-align: left;
+	}
+
+	.event .content .row a {
+		background: #df2349;
+		color: #fff;
+		padding: 4px 7px;
+		border-radius: 5px;
+		font-size: 14px;
+		margin-top: 0;
+		text-align: left;
+		float: left;
+	}
+}
+
+
+
+
+/*--------------------------------------------------------------
+#1.6	groomsmen-bridesmaids
+--------------------------------------------------------------*/
+@media only screen and (max-width: 1199px) {
+	.groomsmen-bridesmaids .frame {
+		margin-top: -107px;
+	}
+}
+
+@media only screen and (max-width: 991px) {
+	.groomsmen-bridesmaids .frame {
+		margin-top: -94px;
+	}
+
+	.groomsmen-bridesmaids .content .col {
+		padding: 0;
+	}
+
+	.groomsmen-bridesmaids .content h3 {
+		font-size: 17px;
+	}
+
+	.groomsmen-bridesmaids .content span {
+		font-size: 13px;
+	}
+
+	.groomsmen-bridesmaids .overlay div span, 
+	.journal .overlay div span {
+		font-size: 15px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.groomsmen-bridesmaids {
+		padding-bottom: 0;
+	}
+
+	.groomsmen-bridesmaids .content {
+		padding-top: 60px;
+		padding-bottom: 60px;
+		margin: 0 !important;
+	}
+
+	.groomsmen-bridesmaids .frame {
+		margin-top: 0;
+	}
+
+	.groomsmen-bridesmaids .frame img:nth-child(2) {
+		position: relative;
+		z-index: 50;
+		width: 100%;
+	}
+
+	.groomsmen-bridesmaids .content .col {
+		padding: 25px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.groomsmen-bridesmaids .content h3 {
+		font-size: 17px !important;
+	}
+
+	.groomsmen-bridesmaids .content span {
+		font-size: 18px !important;
+	}
+
+	.groomsmen-bridesmaids .content .container > .col {
+		width: 100%;
+		margin-bottom: 50px;
+	}
+
+	.groomsmen-bridesmaids .content .container > .col:last-child {
+		margin-bottom: 0;
+	}
+
+	.groomsmen-bridesmaids .overlay div span, 
+	.journal .overlay div span {
+		font-size: 15px !important;
+	}
+}
+
+@media only screen and (max-width: 375px) {
+	.groomsmen-bridesmaids .content h3 {
+		font-size: 14px !important;
+	}
+}
+
+@media only screen and (max-width: 320px) {
+	.groomsmen-bridesmaids .section-heading h2 {
+		font-size: 25px;
+	}
+}
+
+
+
+/*--------------------------------------------------------------
+#1.7	gift-registration
+--------------------------------------------------------------*/
+@media only screen and (max-width: 1199px) {
+	.gift-registration .gift-slider a {
+		padding: 15px 10px;
+	}
+}
+
+@media only screen and (max-width: 991px) {
+	.gift-registration .gift-slider a img {
+		width: 70%;
+		display: block;
+		margin: 0 auto;
+	}
+
+	.gift-registration .gift-slider a {
+		padding: 10px 0;
+		border-radius: 5px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.gift-registration .owl-item {
+		position: relative;
+		left: 10px;
+	}
+}
+
+
+
+
+/*--------------------------------------------------------------
+#1.8	rsvp
+--------------------------------------------------------------*/
+@media only screen and (max-width: 767px) {
+	.rsvp .from-wrapper {
+		background-size: 100% 823px;
+		height: 823px;
+	}
+
+	.rsvp form input,
+	.rsvp form select,
+	.rsvp form textarea {
+		height: 40px;
+		font-size: 16px;
+	}
+
+	.rsvp form textarea {
+		height: 160px;
+		padding: 15px;
+		border-radius: 5px;
+	}
+
+}
+
+
+@media only screen and (max-width: 500px) {
+	.rsvp .form-inline {
+		padding: 160px 10px 40px 10px; 
+	}
+
+	.rsvp form input[type="submit"] {
+		font-size: 16px;
+		padding: 0 40px;
+		height: 40px;
+	}
+
+	.rsvp form input,
+	.rsvp form select,
+	.rsvp form textarea {
+		font-size: 15px;
+		width: 100% !important;
+	}
+}
+
+
+
+
+/*--------------------------------------------------------------
+#1.9	journal
+--------------------------------------------------------------*/
+@media only screen and (max-width: 991px) {
+	.journal .content .container {
+		margin-top: -91px;
+	}
+
+	.journal .content .container > .col {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.journal .frame {
+		width: 230px;
+		height: 230px;
+		top: -25px;
+	}
+
+	.journal .frame .hover-title div span {
+		display: inline-block;
+		font-size: 18px;
+	}
+
+}
+
+@media only screen and (max-width: 767px) {
+	.journal .content {
+		margin-top: 0;
+	}
+
+	.journal .content .container {
+		margin-top: 100px;
+	}
+
+	.journal .content .col {
+		width: 80%;
+		margin: 0 auto 50px;
+	}
+
+	.journal .frame .frame-main {
+		display: none;
+	}
+
+	.journal .frame .frame-sm {
+		display: block;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.journal .link a {
+		font-size: 14px;
+		padding: 7px 15px;
+		margin: 0 5px 0 0;
+	}
+}
+
+
+
+/*--------------------------------------------------------------
+#1.10	wedd-location
+--------------------------------------------------------------*/
+@media only screen and (max-width: 991px) {
+	.wedd-location .container .row:last-child > .col {
+		padding: 0 5px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.wedd-location h3 {
+		margin-bottom: 20px;
+	}
+
+	.wedd-location .container .row:last-child > .col {
+		padding: 0 15px 100px;
+	}
+
+	.wedd-location .container .row:last-child > .col:last-child {
+		padding-bottom: 0;
+	}
+}
+
+
+
+/*--------------------------------------------------------------
+#1.11	footer
+--------------------------------------------------------------*/
+@media only screen and (max-width: 991px) {
+	footer h2 {
+		font-size: 45px;
+	}
+
+	footer .row:first-child span {
+		font-size: 25px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	footer h2 {
+		font-size: 35px;
+	}
+
+	footer .row:first-child span {
+		font-size: 20px;
+	}
+
+	footer .row:last-child {
+		padding-left: 15px;
+	}
+
+	footer .container .col {
+		width: 100%;
+	}
+
+	footer ul {
+		float: left;
+		margin-top: 15px;
+	}
+
+	footer ul li:first-child {
+		margin-left: 0;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	footer h2 {
+		font-size: 30px;
+	}
+
+	footer .row:first-child span {
+		font-size: 20px;
+	}
+}
+
+
+
+/*=========================================================
+2.	blog
+=========================================================*/
+
+/*--------------------------------------------------------------
+#2.1	blog-content
+--------------------------------------------------------------*/
+@media only screen and (max-width: 500px) {
+	#blog .blog-content .row {
+		margin-bottom: 100px;
+	}
+
+	#blog .blog-content .read-more {
+		font-size: 16px;
+	}
+}
+
+
+
+/*=========================================================
+3.	blog-details
+=========================================================*/
+
+/*--------------------------------------------------------------
+#3.1	blog-details-content
+--------------------------------------------------------------*/
+@media only screen and (max-width: 1199px) {
+	#blog-details .comment .sub-comment {
+		padding-left: 45px;
+	}
+
+	#blog-details .comment .sub-comment .col:last-child {
+		padding-left: 15px;
+	}
+}
+
+@media only screen and (max-width: 991px) {
+	#blog-details .blog-content {
+		background: #fdf4f3;
+		padding-bottom: 0;
+	}
+
+	#blog-details .blog-details-content > div {
+		padding: 0;
+	}
+
+
+	/*comment*/
+	#blog-details .comment .col:last-child {
+		padding-left: 15px;
+	}
+
+	#blog-details .comment a {
+		position: static;
+	}
+
+	#blog-details .comment .sub-comment {
+		padding-left: 50px;
+	}
+
+	#blog-details .comment h3 + p {
+		margin-bottom: 15px;
+	}
+
+	#blog-details .comment .row {
+		background: #fff ;
+		margin-bottom: 40px;
+		padding: 25px 0 25px 15px;
+	}
+	
+	.comment-submit-form {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	#blog-details .blog-details-content > div {
+		padding: 0 15px;
+	}
+
+	/*comment*/
+	#blog-details .comment h3 {
+		font-size: 22px;
+		margin-top: 15px;
+	}
+
+	#blog-details .comment .row {
+		padding: 25px 0;
+	}
+
+	.comment-submit-form {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	.comment-submit-form input[type="submit"] {
+		width: 100px;
+		height: 40px;
+		bottom: -58px;
+	}
+}
+
+
+
+/*--------------------------------------------------------------
+#4	blog-masonry
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+#4.1	blog-masonry-content
+--------------------------------------------------------------*/
+@media only screen and (max-width: 767px) {
+	#blog-masonry .thumbnail img {
+		margin-left: 0;
+	}
+}
+
+
+
+/*--------------------------------------------------------------
+#5	comming-soon
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+#5.1	comming-soon-content
+--------------------------------------------------------------*/
+@media only screen and (max-width: 991px) {
+	.comming-soon-content h1 {
+		font-size: 63px;
+	}
+
+	.comming-soon-content h2 {
+		font-size: 28px;
+		padding-bottom: 60px;
+	} 
+
+	.comming-soon-content .wrapper-digit div {
+		width: 22px !important;
+		height: 60px !important;
+		font-size: 40px !important;
+	}
+
+	#clock .time > div {
+		width: 140px;
+		height: 140px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.comming-soon-content {
+		padding: 100px 0 50px;
+	}
+
+	.comming-soon-content h1 {
+		font-size: 40px;
+	}
+
+	.comming-soon-content h2 {
+		font-size: 20px;
+		padding-bottom: 60px;
+	} 
+
+	.comming-soon-content .wrapper-digit div {
+		width: 18px !important;
+		height: 40px !important;
+		font-size: 30px !important;
+	}
+
+
+	#clock .wrapper-digit div {
+		width: 17px !important;
+		height: 38px !important;
+		font-size: 30px !important;
+	}
+
+	#clock .wrapper-digit p {
+		font-size: 15px;
+	}
+
+	#clock .time > div {
+		width: 120px;
+		height: 120px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+
+	.comming-soon-content #clock > .col .col {
+		width: 50%;
+		margin-bottom: 50px;
+	}
+
+	.comming-soon-content h1 {
+		background: none;
+		padding: 0;
+	}
+}
+
+
+
+
+

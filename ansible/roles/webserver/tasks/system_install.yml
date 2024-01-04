@@ -1,0 +1,25 @@
+- name: Install deps 
+  apt:
+    update_cache: yes
+    state: present
+    name: [
+    'language-pack-vi',
+  ]
+
+- name: Lấy cài đặt locale và language hiện tại
+  command: localectl status
+  register: locale_status
+  changed_when: false
+
+- name: Lấy thông tin 'LANG'
+  set_fact:
+    locale_lang: "{{ locale_status.stdout | regex_search('LANG=([^\n]+)', '\\1') | first }}"
+
+- name: Lấy thông tin 'LANGUAGE'
+  set_fact:
+    locale_language: "{{ locale_status.stdout | regex_search('LANGUAGE=([^\n]+)', '\\1') | default([locale_lang], true) | first }}"
+
+- name: Chỉnh cấu hình hệ thống về '{{ SYSTEM_LANG }}' và '{{ SYSTEM_LANGUAGE }}'
+  become: yes
+  command: localectl set-locale LANG={{ SYSTEM_LANG }} LANGUAGE={{ SYSTEM_LANGUAGE }}
+  changed_when: locale_lang != SYSTEM_LANG or locale_language != SYSTEM_LANGUAGE

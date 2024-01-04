@@ -1,0 +1,40 @@
+ul#countdown {
+  /* position: relative; */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50%;
+  margin: 0 auto;
+  padding: 15px 0 20px 0;
+  color: #fff;
+  border: 1px solid #adafb2;
+  border-width: 1px 0;
+  overflow: hidden;
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+
+  li {
+    margin: 0 -3px 0 0;
+    padding: 0;
+    display: inline-block;
+    font-size: 72px;
+    font-size: 6vw;
+    text-align: center;
+
+    .label {
+      color: #adafb2;
+      vertical-align: top;
+      font-size: 18px;
+      font-size: 1.5vw;
+      text-transform: uppercase;
+    }
+    .number {
+      vertical-align: top;
+    }
+  }
+}
+div.clock {
+	width: 70%;
+	position: absolute;
+    top: 50%;
+    left: 15%;
+}

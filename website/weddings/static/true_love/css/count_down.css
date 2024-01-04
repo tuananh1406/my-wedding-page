@@ -1,0 +1,26 @@
+ul#countdown {
+  position: relative;
+  top: 50%;
+  width: 50%;
+  margin: 0 auto;
+  color: #f7b3d2;
+  overflow: hidden;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-weight: bold;
+  font-size: 70px;
+}
+ul#countdown li {
+  margin: 0 -3px 0 0;
+  padding: 0;
+  display: inline-block;
+  width: 25%;
+  font-size: 72px;
+  font-size: 6vw;
+  text-align: center;
+}
+ul#countdown li .label {
+  color: #f7b3d2;
+  font-size: 18px;
+  font-size: 1.5vw;
+  text-transform: uppercase;
+}

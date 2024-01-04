@@ -1,0 +1,371 @@
+/* Try hovering and changing the height/width */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body,
+html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: black;
+    margin: 0;
+}
+
+#mz-gallery-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+#mz-gallery {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: calc(100% - 70px);
+    height: calc(100% - 50px);
+    max-height: 670px;
+    max-width: 1900px;
+    margin: 35px 0px;
+    background-color: black;
+    background-image: radial-gradient(rgba(124, 252, 0, 0.4) 1px, black 1px);
+    background-size: 40px 40px;
+    border: 1px dotted rgba(124, 252, 0, 0.7);
+    outline: 1px dotted rgba(124, 252, 0, 0.7);
+    outline-offset: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 0 0 55px;
+    scroll-behavior: smooth;
+    /* firefox scrollbar */
+    scrollbar-color: lawngreen #222;
+    scrollbar-width: auto;
+    animation: background 300s linear infinite;
+}
+
+@keyframes background {
+    0% {
+        background-position: -300% 100%;
+    }
+    100% {
+        background-position: 100% -300%;
+    }
+}
+
+#mz-gallery::-webkit-scrollbar {
+    height: 25px;
+}
+
+#mz-gallery::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#mz-gallery::-webkit-scrollbar-thumb {
+    background: #666;
+}
+
+#mz-gallery::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+#mz-gallery::-webkit-scrollbar-thumb:active {
+    background: #444;
+}
+
+#mz-gallery::-webkit-scrollbar-button:single-button:horizontal:decrement {
+    height: 25px;
+    width: 80px;
+    background-color: lawngreen;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-box-arrow-left' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z'/%3E%3Cpath fill-rule='evenodd' d='M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z'/%3E%3C/svg%3E");
+    background-size: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#mz-gallery::-webkit-scrollbar-button:single-button:horizontal:increment {
+    height: 25px;
+    width: 80px;
+    background-color: lawngreen;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-box-arrow-right' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z'/%3E%3Cpath fill-rule='evenodd' d='M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z'/%3E%3C/svg%3E");
+    background-size: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#mz-gallery::-webkit-scrollbar-button:single-button:horizontal:decrement:hover,
+#mz-gallery::-webkit-scrollbar-button:single-button:horizontal:increment:hover {
+    background-color: #59b500;
+}
+
+#mz-gallery::-webkit-scrollbar-button:single-button:horizontal:decrement:active,
+#mz-gallery::-webkit-scrollbar-button:single-button:horizontal:increment:active {
+    background-color: #3d7d00;
+}
+
+#mz-gallery figure {
+    position: relative;
+    margin: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    width: auto;
+    min-height: 100px;
+    margin-right: 60px;
+    scroll-snap-align: start;
+    transition: all 0.3s ease-in-out;
+}
+
+#mz-gallery figure:nth-child(1) {
+    margin-left: 60px;
+}
+
+#mz-gallery figure div {
+    position: absolute;
+    width: 1%;
+    height: 1%;
+    background: transparent;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+#mz-gallery figure div:nth-child(3) {
+    top: 0;
+    left: 0;
+    border-left: 1px dotted lawngreen;
+    border-top: 1px solid lawngreen;
+    border-radius: 15px 0px 0px 0px;
+}
+
+#mz-gallery figure div:nth-child(4) {
+    top: 0;
+    right: 0;
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+    border-radius: 0px 15px 0px 0px;
+}
+
+#mz-gallery figure div:nth-child(5) {
+    bottom: 0;
+    right: 0;
+    border-right: 1px dotted lawngreen;
+    border-bottom: 1px solid lawngreen;
+    border-radius: 0px 0px 15px 0px;
+}
+
+#mz-gallery figure div:nth-child(6) {
+    bottom: 0;
+    left: 0;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    border-radius: 0px 0px 0px 15px;
+}
+
+#mz-gallery figure img {
+    height: 100%;
+    width: auto;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+        rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    border-radius: 5px;
+    opacity: 0.9;
+    filter: brightness(1);
+    outline: 1px solid transparent;
+    outline-offset: -40px;
+    transition: all 0.3s ease-in-out;
+}
+
+#mz-gallery figure figcaption {
+    position: absolute;
+    color: transparent;
+    font-size: 18pt;
+    line-height: 24pt;
+    font-weight: 500;
+    padding: 0px 20px;
+    text-align: center;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(
+        rgba(124, 252, 0, 0.7) 1px,
+        rgba(0, 0, 0, 0.9) 1px
+    );
+    outline: 2px dotted transparent;
+    outline-offset: 0px;
+    background-size: 40px 40px;
+    opacity: 0;
+    border-radius: 100%;
+    pointer-events: none;
+    animation: background 100s linear infinite;
+    transition: all 0.3s ease-in-out;
+}
+
+#mz-gallery figure:hover img {
+    height: calc(100% - 40px);
+    filter: brightness(1.5);
+    border-radius: 10px;
+    outline: 1px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+#mz-gallery figure:hover {
+    padding: 0px 20px;
+}
+
+#mz-gallery figure:hover figcaption {
+    opacity: 0.8;
+    color: white;
+    outline: 1px solid lawngreen;
+    outline-offset: -20px;
+    text-shadow: 1px 1px 3px black, 0px 0px 5px black;
+    transition: all 0.3s ease-in-out;
+}
+
+#mz-gallery figure:hover div {
+    width: 25%;
+    height: 25%;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 1145px) {
+    #mz-gallery figure {
+        scroll-snap-align: center;
+    }
+    #mz-gallery {
+        scroll-padding: 0px 0px 0px 0px !important;
+    }
+}
+
+@media (max-width: 610px) {
+    #mz-gallery {
+        max-height: 320px;
+    }
+    #mz-gallery figure {
+        margin-right: 20px;
+    }
+    #mz-gallery figure:nth-child(1) {
+        margin-left: 20px;
+    }
+}
+
+@media (max-height: 425px) {
+    #mz-gallery figure figcaption {
+        font-size: 14pt;
+        line-height: 20pt;
+    }
+}
+
+@media (max-height: 340px) {
+    #mz-gallery {
+        background-size: 30px 30px;
+        scroll-padding: 0 0 0 28px;
+    }
+    #mz-gallery figure {
+        margin-right: 30px;
+    }
+    #mz-gallery figure:nth-child(1) {
+        margin-left: 30px;
+    }
+    #mz-gallery figure figcaption {
+        font-size: 12pt;
+        line-height: 18pt;
+        font-weight: 400;
+        background-size: 30px 30px;
+    }
+}
+
+@media (max-height: 280px) {
+    #mz-gallery::-webkit-scrollbar {
+        height: 20px;
+    }
+    #mz-gallery::-webkit-scrollbar-button:single-button:horizontal:decrement,
+    #mz-gallery::-webkit-scrollbar-button:single-button:horizontal:increment {
+        width: 80px;
+        height: 20px;
+        background-size: 15px;
+    }
+}
+
+@media (max-height: 230px) {
+    #mz-gallery figure figcaption {
+        font-size: 10pt;
+        line-height: 12pt;
+    }
+    #mz-gallery figure:hover figcaption {
+        outline-offset: -10px;
+    }
+    #mz-gallery figure:hover img {
+        outline-offset: 10px;
+    }
+}
+
+@media (max-height: 165px) {
+    #mz-gallery {
+        scroll-padding: 0 0 0 18px;
+        margin: 0px;
+    }
+    #mz-gallery figure {
+        margin-right: 20px;
+    }
+    #mz-gallery figure:nth-child(1) {
+        margin-left: 20px;
+    }
+}
+
+/* touch screen devices */
+
+@media (pointer: coarse) {
+    #mz-gallery * {
+        pointer-events: none;
+    }
+    #mz-gallery::-webkit-scrollbar {
+        height: 35px;
+    }
+    #mz-gallery {
+        scroll-snap-type: unset;
+        scroll-padding: unset;
+        scroll-behavior: unset;
+    }
+    #mz-gallery figure {
+        scroll-snap-align: unset;
+    }
+    #mz-gallery figure figcaption {
+        width: 100%;
+        height: 30%;
+        bottom: 0;
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        animation: unset;
+        border-radius: 0;
+        padding: 0px 15px;
+        border-top: 1px solid lawngreen;
+    }
+}

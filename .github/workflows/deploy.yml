@@ -1,0 +1,59 @@
+---
+name: Deploy to production when has change
+
+on:
+  push:
+    branches: [master-12345]
+
+jobs:
+  build:
+    name: Build code in runner
+    runs-on: [self-hosted, pc-lan-website]
+    environment: Production
+    steps:
+      - name: Pull new code
+        uses: actions/checkout@v4
+        with: 
+          token: ${{ secrets.PAT }}
+          ref: 'master'
+          submodules: true
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pipenv
+          pipenv install
+        working-directory: ${{ github.workspace }}/website_ca_nha
+      - name: Run migrate
+        run: PIPENV_DOTENV_LOCATION=prod.env pipenv run python manage.py migrate 
+        working-directory: ${{ github.workspace }}/website_ca_nha
+      - name: Clean pipenv
+        run: |
+          pipenv --rm
+          rm -rf *.lock
+        working-directory: ${{ github.workspace }}/website_ca_nha
+      - name: Write out summary
+        run: echo "### Migrate done" >> $GITHUB_STEP_SUMMARY
+
+  deploy_to_product:
+    name: Deploy using ansible
+    runs-on: [self-hosted, pc-lan-website]
+    env:
+      SSH_KEY: "$HOME/MEGA/cai_dat_ca_nhan/id_rsa/github_tuananh"
+    environment: Production
+    needs: build
+
+    steps:
+      - name: Run ansible deploy code
+        run: |
+          eval $(ssh-agent -s) && \
+          ssh-add $HOME/MEGA/cai_dat_ca_nhan/id_rsa/github_tuananh&&ansible-playbook \
+          -i hosts webserver.yml -l production -t install-systemd --key-file \
+          $HOME/MEGA/cai_dat_ca_nhan/id_rsa/github_tuananh --ssh-extra-args \
+          "-F $HOME/.ssh/config"
+        working-directory: ${{ github.workspace }}/ansible_website_ca_nhan
+      - name: Write out summary
+        run: echo "### Deploy done" >> $GITHUB_STEP_SUMMARY

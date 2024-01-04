@@ -1,0 +1,71 @@
+{% load static %} {% spaceless %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Ngày {{ invitation_info.ngay_to_chuc|date:'d-m-Y' }} trân trọng mời {{invitation_info.friend_pronoun}} {{ invitation_info.ten }} tới dự lễ cưới của {{ invitation_info.my_pronoun }}"
+    />
+    <meta
+      name="keyword"
+      content="Ngày {{ invitation_info.ngay_to_chuc|date:'d-m-Y' }} trân trọng mời {{invitation_info.friend_pronoun}} {{ invitation_info.ten }} tới dự lễ cưới của {{ invitation_info.my_pronoun }}"
+    />
+    <meta name="author" content="HuuTuanAnh" />
+
+    <meta property="og:url" content="{{ request.build_absolute_uri }}{{ object.get_absolute_url }}" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Trân trọng kính mời"
+    />
+    <meta
+      property="og:description"
+      content="Ngày {{ invitation_info.ngay_to_chuc|date:'d-m-Y' }} trân trọng kính mời {{invitation_info.friend_pronoun}} {{ invitation_info.ten }} tới dự lễ cưới của {{ invitation_info.my_pronoun }}"
+    />
+    <meta property="og:image" content="https://onedrive.live.com/embed?resid={{ invitation_info.resid }}&authkey={{ invitation_info.authkey }}&width={{ invitation_info.og_img_width}}&height={{ invitation_info.og_img_height }}" />
+    <meta property="og:image:width" content="{{ invitation_info.og_img_width }}" />
+    <meta property="og:image:height" content="{{ invitation_info.og_img_height }}" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:locale" content="vi_VN" />
+    <link href="{% static 'true_love/css/invitation.css' %}" rel="stylesheet" />
+
+    <title>
+Ngày {{ invitation_info.ngay_to_chuc|date:'d-m-Y' }} trân trọng kính mời {{invitation_info.friend_pronoun}} {{ invitation_info.ten }} tới dự lễ cưới của {{ invitation_info.my_pronoun }}
+    </title>
+            <link href="{% static 'true_love/images/favicon.png' %}" rel="icon">
+            <style type="text/css">
+                @font-face {
+                    font-family: "SVN-Vintage";
+                    src: url({% static 'fonts/SVN-Vintage.otf' %}) format("opentype");
+                }
+                .box-text {
+                    font-family: "SVN-Vintage", Verdana, Tahoma;
+                }
+            </style>
+  </head>
+  <body>
+    <div id="container">
+      <a href="{% url "weddings:true_love_custom" "tuan-anh-kim-oanh" %}" target="_blank" >
+        <img
+        src="https://onedrive.live.com/embed?resid={{ invitation_info.resid }}&authkey={{ invitation_info.authkey }}&width={{ invitation_info.width_anh_goc }}"
+          alt="HuuTuanAnh"
+        />
+      </a>
+      <div class="box-text">
+        <h1>Lễ thành hôn</h1>
+        <h1>Tuấn Anh ♥ Kim Oanh</h1>
+        <p>Ngày {{ invitation_info.ngay_to_chuc|date:'d-m-Y' }}, trân trọng kính mời {{ invitation_info.friend_pronoun }} đến dự lễ thành hôn của vợ chồng {{ invitation_info.my_pronoun }}</p>
+        <p>Rất hân hạnh được đón tiếp {{ invitation_info.friend_pronoun }}</p>
+      </div>
+    </div>
+            <div class="donate-logo">
+                <div class="donate-logo-secondary">
+                    <div class="donate-logo-secondary-content">Xem lễ thành hôn của tôi</div>
+                </div><a href="{% url "weddings:true_love_custom" "tuan-anh-kim-oanh" %}" class="buttonDonate">
+                    <img src="{% static "true_love/images/donatebox.webp" %}"></a></div>
+  </body>
+</html>
+{% endspaceless %}

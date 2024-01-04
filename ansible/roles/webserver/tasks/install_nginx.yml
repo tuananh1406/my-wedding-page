@@ -1,0 +1,38 @@
+---
+- name: "apt-get update"
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: "install nginx"
+  apt:
+    name: ['nginx']
+    state: latest
+
+- name: delete default nginx site
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+  notify: restart nginx
+
+- name: copy nginx site.conf
+  copy:
+    src: /src/code/docker/nginx/nginx.conf
+    dest: /etc/nginx/conf.d/{{ DOMAIN }}.conf
+    owner: root
+    group: root
+    mode: '0644'
+    remote_src: yes
+
+- name: "Thay đổi web host"
+  ansible.builtin.replace:
+    path: /etc/nginx/conf.d/{{ DOMAIN }}.conf
+    regexp: 'web:8000'
+    replace: 'localhost:8000'
+
+- name: "Thay đổi ssl folder"
+  ansible.builtin.replace:
+    path: /etc/nginx/conf.d/{{ DOMAIN }}.conf
+    regexp: 'etc\/ssl'
+    replace: 'src/code/docker/nginx'
+  notify: restart nginx

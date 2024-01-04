@@ -1,0 +1,78 @@
+- import_tasks: system_install.yml
+  become: yes
+  become_user: root
+
+- name: Update packages
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Install pipenv dependencies
+  apt:
+    name: [
+      'python3',
+      'python3-pip',
+      'python3-venv',
+      "postgresql-contrib",
+      "gcc",
+      "musl-dev",
+      "libgl-dev",
+    ]
+    state: latest
+
+- name: Install Pipenv
+  pip:
+    name: pipenv
+    state: present
+    executable: pip3
+
+- name: Tạo thư mục {{ CODE_PATH }}
+  file:
+    path: "{{ CODE_PATH }}"
+    state: directory
+    owner: "{{ ansible_user }}"
+
+- name: Tải code từ git
+  ansible.builtin.git:
+    repo: "{{ GIT_REPO }}"
+    dest: "{{ CODE_PATH }}"
+    version: "{{ GIT_BRANCH }}"
+    force: yes
+    accept_hostkey: yes
+    single_branch: true
+  become: no
+  tags:
+    - update
+
+- name: Create logs folder
+  file:
+    path: /src/code/logs
+    state: directory
+    owner: "{{ ansible_user }}"
+    mode: 0775
+
+- name: Get python3 path
+  ansible.builtin.command: which python3
+  register: python3_path
+
+- name: Install website
+  ansible.builtin.command:
+    chdir: /src/code
+    cmd: "pipenv install --python={{ python3_path.stdout }}"
+  environment:
+    PIPENV_PIPFILE: /src/code/Pipfile
+
+- import_tasks: cloud_hosts_env.yml
+  become: yes
+  become_user: root
+  tags:
+    - update
+
+- import_tasks: install_nginx.yml
+  become: yes
+  become_user: root
+
+- import_tasks: enable_systemd.yml
+  become: yes
+  become_user: root
+

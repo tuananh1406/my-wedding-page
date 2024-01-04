@@ -1,0 +1,29 @@
+/*
+Copyright (c) 2021 Himanshu Softtech.
+------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:	Wedding Responsive HTML Template
+Version:	1.0.0
+Assigned to:	Themeforest
+-------------------------------------------------------------------*/
+
+@import url("fonts.css");
+@import url("bootstrap.min.css");
+@import url("style.css");
+@import url("animate.css");
+@import url("ihover.css");
+@import url("responsive.css");
+/* @import url("../js/plugins/owl/owl.carousel.css"); */
+/* @import url("../js/plugins/owl/owl.theme.css"); */
+@import url("../js/plugins/fancybox/jquery.fancybox.css");
+/* @import url("../js/plugins/owl/owl.carousel.css"); */
+/* @import url("../js/plugins/owl/owl.theme.css"); */
+@import url("../js/plugins/owl/owl.carousel.min.css");
+@import url("../js/plugins/owl/owl.theme.default.min.css");
+@import url("../js/plugins/revolution/css/settings.css");
+@import url("../js/plugins/revolution/css/layers.css");
+@import url("../js/plugins/revolution/css/navigation.css");
+@import url("../js/plugins/scattered/css/component.css");
+@import url("../js/plugins/flipclock/flipclock.css");
+@import url("font-awesome.min.css");

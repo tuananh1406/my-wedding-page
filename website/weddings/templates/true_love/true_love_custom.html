@@ -1,0 +1,759 @@
+{% load static %}
+{% spaceless %}
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="description" content="Lễ thành hôn của {{ wedding_info.chu_re.ten_rut_gon }} và {{ wedding_info.co_dau.ten_rut_gon }}">
+            <meta name="keyword" content="Lễ thành hôn của {{ wedding_info.chu_re.ten_rut_gon }} và {{ wedding_info.co_dau.ten_rut_gon }}">
+            <meta name="author" content="HuuTuanAnh">
+
+            <meta property="og:url"                content="{{ og_url }}" />
+            <meta property="og:type"               content="website" />
+            <meta property="og:title"              content="Lễ thành hôn của {{ wedding_info.chu_re.ten_rut_gon }} và {{ wedding_info.co_dau.ten_rut_gon }}" />
+            <meta property="og:description"        content="{{ wedding_info.description_share }}" />
+            <meta property="og:image"              content="{{ og_image_url }}" />
+            <meta property="og:image:width"              content="1200" />
+            <meta property="og:image:height"              content="630" />
+            <meta property="og:locale"              content="vi_VN" />
+
+            <title>{{ wedding_info.chu_re.ten_rut_gon }} - {{ wedding_info.co_dau.ten_rut_gon }}</title>
+            <link href="{% static 'true_love/images/favicon.png' %}" rel="icon">
+            <link href="{% static 'true_love/css/font-awesome.min.css' %}"
+                  rel="stylesheet">
+            <link href='https://fonts.googleapis.com/css?family=Lobster'
+                  rel='stylesheet'
+                  type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300'
+                  rel='stylesheet'
+                  type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=Dancing+Script:700'
+                  rel='stylesheet'
+                  type='text/css'>
+            <link href="{% static 'true_love/css/bootstrap.min.css' %}"
+                  rel="stylesheet">
+            <link href="{% static 'true_love/css/owl.carousel.css' %}" rel="stylesheet">
+            <link href="{% static 'true_love/css/owl.theme.css' %}" rel="stylesheet">
+            <link href="{% static 'true_love/css/count_down.css' %}" rel="stylesheet">
+            <link href="{% static 'true_love/css/nivo-lightbox.css' %}"
+                  rel="stylesheet">
+            <link href="{% static 'true_love/css/nivo-default.css' %}" rel="stylesheet">
+            <link href="{% static 'true_love/css/animate.min.css' %}" rel="stylesheet">
+            <link href="{% static 'true_love/css/style.css' %}" rel="stylesheet">
+            <link href="{% static 'true_love/css/responsive.css' %}" rel="stylesheet">
+            <link href="{% static 'true_love/css/animation-donate-box.css' %}"
+                  rel="stylesheet">
+            <style type="text/css">
+                @font-face {
+                    font-family: "SVN-Janelotus";
+                    src: url({% static 'fonts/SVN-Janelotus.otf' %}) format("opentype");
+                }
+                p.signature {
+                    font-family: "SVN-Janelotus", Verdana, Tahoma;
+                    font-size: 50px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="site-loder">
+                <div class="heart"></div>
+            </div>
+            <!-- end of site-loder -->
+            <header id="home">
+                <nav class="navbar" id="nav">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button"
+                                    class="navbar-toggle collapsed"
+                                    data-toggle="collapse"
+                                    data-target="#navbar"
+                                    aria-expanded="false"
+                                    aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="{% url 'weddings:true_love_custom' slug=wedding_info.slug %}">True <i class="fa fa-heart"></i> Love</a>
+                        </div>
+                        <div id="navbar" class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li>
+                                    <a href="#home">Trang chính</a>
+                                </li>
+                                <li>
+                                    <a href="#couple">Thông báo</a>
+                                </li>
+                                <li>
+                                    <a href="#story">Chuyện tình yêu</a>
+                                </li>
+                                <li>
+                                    <a href="#event">Sự kiện</a>
+                                </li>
+                                <li class="theme-logo hidden-xs">
+                                    <a href="{% url 'weddings:true_love_custom' slug=wedding_info.slug %}">
+                                        <img src="{{ wedding_info.logo.url }}"
+                                             alt="Logo"
+                                             class="hidden-sm logo-rotating" loading="lazy">
+                                        <img src="{{ wedding_info.logo_sm.url }}"
+                                             alt="Logo"
+                                             class="hidden-md hidden-lg logo-rotating" loading="lazy">
+                                        <div>
+                                            <div>
+                                                <span>{{ wedding_info.chu_re.ten_rut_gon }}</span>
+                                                <span>{{ wedding_info.co_dau.ten_rut_gon }}</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#gallery">Ảnh cưới</a>
+                                </li>
+                                <li>
+                                    <a href="#people">Gia đình</a>
+                                </li>
+                                <li>
+                                    <a href="#rsvp">Lời chúc</a>
+                                </li>
+                                <li>
+                                    <a class="buttonDonate" href="#donate">Mừng cưới</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- end of nav -->
+                <div class="title-bg">
+                    <div class="title">
+                        <h1>ĐÓN CHỜ NGÀY</h1>
+                        <h2>THÀNH HÔN</h2>
+                        <p class="date">{{ wedding_info.ngay_to_chuc|date:'d-m-Y' }}</p>
+                    </div>
+                </div>
+                <div class="slider">
+                    {% for slide_photo in slide_photos %}
+                        <div class="slide-item slide-img"
+                             style="background: url({{ slide_photo.hinh_anh.url }})">
+                            <div class="overlay"></div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <!-- end of slider -->
+            </header>
+            <!-- end of header -->
+            <section class="wedding-announcement section-padding" id="couple">
+                <div class="heart heart-animation"></div>
+                <div class="container">
+                    <div class="row section-heading">
+                        <div class="col col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                            <h2>Thông báo</h2>
+                            <p>{{ wedding_info.thong_bao|safe }}</p>
+                        </div>
+                    </div>
+                    <div class="row content">
+                        <div class="col col-sm-6 left-col">
+                            <div class="col col-xs-6 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                                <div class="frame">
+                                    <img src="{% static 'true_love/images/home/announcement/img-frame.png' %}"
+                                         alt="Frame"
+                                         class="img img-responsive img-circle" loading="lazy">
+                                    <img src="{{ wedding_info.chu_re.hinh_anh.url }}"
+                                         alt="Groom"
+                                         class="img img-responsive img-circle" loading="lazy">
+                                </div>
+                                <h3>{{ wedding_info.chu_re.ho_va_ten|wordwrap:5|linebreaksbr }}</h3>
+                                <h4>Chú rể</h4>
+                                <p>{{ wedding_info.chu_re.gioi_thieu|safe }}</p>
+                                <p class="signature">{{ wedding_info.chu_re.ho_va_ten }}</p>
+                            </div>
+                        </div>
+                        <div class="col col-sm-6 right-col">
+                            <div class="col col-xs-6 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                                <div class="frame">
+                                    <img src="{% static 'true_love/images/home/announcement/img-frame.png' %}"
+                                         alt="Frame"
+                                         class="img img-responsive img-circle" loading="lazy">
+                                    <img src="{{ wedding_info.co_dau.hinh_anh.url }}"
+                                         alt="Bride"
+                                         class="img img-responsive img-circle" loading="lazy">
+                                </div>
+                                <h3>{{ wedding_info.co_dau.ho_va_ten|wordwrap:5|linebreaksbr }}</h3>
+                                <h4>Cô dâu</h4>
+                                <p>{{ wedding_info.co_dau.gioi_thieu|safe }}</p>
+                                <p class="signature">{{ wedding_info.co_dau.ho_va_ten }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of content -->
+                </div>
+                <!-- end of container -->
+            </section>
+            <!-- end of wedding-announcement -->
+            <section class="love-story section-padding" id="story">
+                <div class="container">
+                    <div class="row section-heading">
+                        <div class="col col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                            <h2>Chuyện tình yêu của chúng tôi</h2>
+                            <p>
+                                Cùng điểm qua những khoảnh khắc đáng nhớ của đôi tình nhân
+                                <br>
+                                <b>{{ wedding_info.chu_re.ho_va_ten|safe }}</b> và <b>{{ wedding_info.co_dau.ho_va_ten|safe }}</b> nào
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row content">
+                        {% for love_story in love_stories %}
+                            {% if forloop.counter0|divisibleby:2 %}
+                                <div class="row">
+                                    <div class="col col-xs-12 col-md-10 col-md-offset-1 col-sm-12 col-lg-8 col-lg-offset-2">
+                                        <div class="col col-xs-8 col-sm-8">
+                                            <h3>{{ love_story.ngay_ky_niem|date:'d-m-Y' }}</h3>
+                                            <h4>{{ love_story.ten }}</h4>
+                                            <p>{{ love_story.noi_dung|safe }}</p>
+                                        </div>
+                                        <div class="col col-xs-4 col-sm-4">
+                                            <div class="frame">
+                                                <img src="{% static 'true_love/images/home/love-story/img-frame-right.png' %}"
+                                                     alt="Frame" loading="lazy">
+                                                <img src="{{ love_story.hinh_anh.url }}" alt="Love picture" loading="lazy">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div class="row middle-row">
+                                    <div class="col col-xs-12 col-md-10 col-md-offset-1 col-sm-12 col-lg-8 col-lg-offset-2 middle">
+                                        <div class="col col-xs-4 col-sm-4">
+                                            <div class="frame padding-left">
+                                                <img src="{% static 'true_love/images/home/love-story/img-frame-left.png' %}"
+                                                     alt="Frame" loading="lazy">
+                                                <img src="{{ love_story.hinh_anh.url }}" alt="Love picture" loading="lazy">
+                                            </div>
+                                        </div>
+                                        <div class="col col-xs-8 col-sm-8" style="text-align: right;">
+                                            <h3>{{ love_story.ngay_ky_niem|date:'d-m-Y' }}</h3>
+                                            <h4>{{ love_story.ten }}</h4>
+                                            <p>{{ love_story.noi_dung|safe }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <!-- end of content -->
+                </div>
+                <!-- end of container -->
+            </section>
+            <!-- end of love-story -->
+            <section class="video-bg"
+                     style="background: url({{ wedding_info.hinh_nen.url }}) no-repeat 50% 50%">
+                <div class="overlay"></div>
+                <h2 class="hidden">Video</h2>
+                <div class="row">
+                    <a href="{{ wedding_info.duong_dan_youtube }}" class="btn btn-default">
+                        <i class="fa fa-play"></i>
+                    </a>
+                </div>
+            </section>
+            <!-- end of video-bg -->
+            <section class="event section-padding" id="event">
+                <div class="container">
+                    <div class="row section-heading">
+                        <div class="col col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                            <h2>Ngày trọng đại</h2>
+                            <p>Các ngày trọng đại</p>
+                        </div>
+                    </div>
+                    <div class="content">
+                        {% for event in events %}
+                            {% if forloop.counter0|divisibleby:2 %}
+                                <div class="row" id="first-row">
+                                    <div class="col col-md-4">
+                                        <div class="event-frame">
+                                            <img src="{% static 'true_love/images/home/event/frame.png' %}"
+                                                 alt="Event Frame"
+                                                 class="" loading="lazy">
+                                            <img src="{{ event.hinh_anh.url }}" alt="Event Picture" class="" loading="lazy">
+                                        </div>
+                                    </div>
+                                    <div class="col col-md-8">
+                                        <h3>{{ event.ten }}</h3>
+                                        <p>
+                                            <span><i class="fa fa-calendar"></i>{{ event.ngay_dien_ra|date:'d-m-Y' }},</span>
+                                            <span><i class="fa fa-clock-o"></i>{{ event.thoi_gian_bat_dau|time:'h:i a' }} - {{ event.thoi_gian_ket_thuc|time:'h:i a' }} </span>
+                                            <span><a href="{{ event.map_url }}" target="_blank"><i class="fa fa-map-marker"></i>{{ event.dia_diem|safe }}</a></span>
+                                        </p>
+                                        <p>{{ event.gioi_thieu|safe }}</p>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div class="row middle" id="second-row">
+                                    <div class="col col-md-4 hidden-lg hidden-md">
+                                        <div class="event-frame">
+                                            <img src="{% static 'true_love/images/home/event/frame.png' %}"
+                                                 alt="Event Frame"
+                                                 class="" loading="lazy">
+                                            <img src="{{ event.hinh_anh.url }}" alt="Event Picture" class="" loading="lazy">
+                                        </div>
+                                    </div>
+                                    <div class="col col-md-8">
+                                        <h3>{{ event.ten }}</h3>
+                                        <p>
+                                            <span><i class="fa fa-calendar"></i>{{ event.ngay_dien_ra|date:'d-m-Y' }},</span>
+                                            <span><i class="fa fa-clock-o"></i>{{ event.thoi_gian_bat_dau|time:'h:i a' }} - {{ event.thoi_gian_ket_thuc|time:'h:i a' }} </span>
+                                            <span><a href="{{ event.map_url }}" target="_blank"><i class="fa fa-map-marker"></i>{{ event.dia_diem|safe }}</a></span>
+                                        </p>
+                                        <p>{{ event.gioi_thieu|safe }}</p>
+                                        <!-- <a href="#">Read more</a> -->
+                                    </div>
+                                    <div class="col col-md-4 hidden-sm hidden-xs">
+                                        <div class="event-frame">
+                                            <img src="{% static 'true_love/images/home/event/frame.png' %}"
+                                                 alt="Event Frame"
+                                                 class="" loading="lazy">
+                                            <img src="{{ event.hinh_anh.url }}"
+                                                 alt="Event Picture"
+                                                 class="" loading="lazy">
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <!-- end of content -->
+                </div>
+                <!-- end of container -->
+            </section>
+            <!-- end of event-->
+            <section class="gallery section-padding" id="gallery">
+                <div class="container">
+                    <div class="row section-heading">
+                        <div class="col col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                            <h2>Thư viện hình ảnh</h2>
+                            <p>Thư viện hình ảnh đám cưới</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of container -->
+                <div class="row content">
+                    <ul id="filter">
+                        <li>
+                            <a href="#" class="active" data-group="all">All</a>
+                        </li>
+                        {% for filter_code, filter_name in photo_filter %}
+                            <li>
+                                <a href="#" data-group="{{ filter_code }}">{{ filter_name }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <div class="row" id="shuffle-wrapper">
+                        {% for photo in gallery %}
+                            <div class="col col-xs-6 col-sm-3 item"
+                                 data-groups='[{% for phan_loai in photo.phan_loai.all %}"{{ phan_loai.code }}",{% endfor %}"all"]'>
+                                <a href="{{ photo.hinh_anh.url }}" data-lightbox-gallery="gallery1">
+                                    <div class="overlay"></div>
+                                    <img src="{{ photo.hinh_anh.url }}"
+                                         alt="Gallery image"
+                                         class="img img-responsive" loading="lazy">
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- end of content -->
+            </section>
+            <!-- end of gallery-->
+            <section class="groomsmen-bridesmaids section-padding" id="people">
+                <div class="container">
+                    <div class="row section-heading">
+                        <div class="col col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                            <h2>Gia đình thông gia</h2>
+                            <p>Thông tin gia đình đôi bên</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of container -->
+                <div class="row content">
+                    <div class="container">
+                        <div class="col col-xs-6 col-sm-3">
+                            <div class="frame">
+                                <a href="#">
+                                    <img src="{% static 'true_love/images/home/groomsmen-bridesmaids/img-frame.png' %}"
+                                         alt="Frame"
+                                         class="img img-responsive hidden-xs" loading="lazy">
+                                    <img src="{% static 'true_love/images/home/groomsmen-bridesmaids/img-frame-sm.png' %}"
+                                         alt="Frame"
+                                         class="img img-responsive hidden-lg hidden-md hidden-sm show-xs" loading="lazy">
+                                    <img src="{{ families.ong_noi.hinh_anh.url }}"
+                                         alt="Image"
+                                         class="img img-responsive" loading="lazy">
+                                </a>
+                                <div class="overlay">
+                                    <div>
+                                        <span>Nhà trai</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4>Ông</h4>
+                            <h3>{{ families.ong_noi.ho_va_ten }}</h3>
+                            <span>Nhà trai</span>
+                        </div>
+                        <div class="col col-xs-6 col-sm-3">
+                            <div class="frame">
+                                <a href="#">
+                                    <img src="{% static 'true_love/images/home/groomsmen-bridesmaids/img-frame.png' %}"
+                                         alt="Frame"
+                                         class="img img-responsive hidden-xs" loading="lazy">
+                                    <img src="{% static 'true_love/images/home/groomsmen-bridesmaids/img-frame-sm.png' %}"
+                                         alt="Frame"
+                                         class="img img-responsive hidden-lg hidden-md hidden-sm show-xs" loading="lazy">
+                                    <img src="{{ families.ba_noi.hinh_anh.url }}"
+                                         alt="Image"
+                                         class="img img-responsive" loading="lazy">
+                                </a>
+                                <div class="overlay">
+                                    <div>
+                                        <span>Nhà trai</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4>Bà</h4>
+                            <h3>{{ families.ba_noi.ho_va_ten }}</h3>
+                            <span>Nhà trai</span>
+                        </div>
+                        <div class="col col-xs-6 col-sm-3">
+                            <div class="frame">
+                                <a href="#">
+                                    <img src="{% static 'true_love/images/home/groomsmen-bridesmaids/img-frame.png' %}"
+                                         alt="Frame"
+                                         class="img img-responsive hidden-xs" loading="lazy">
+                                    <img src="{% static 'true_love/images/home/groomsmen-bridesmaids/img-frame-sm.png' %}"
+                                         alt="Frame"
+                                         class="img img-responsive hidden-lg hidden-md hidden-sm show-xs" loading="lazy">
+                                    <img src="{{ families.ong_ngoai.hinh_anh.url }}"
+                                         alt="Image"
+                                         class="img img-responsive" loading="lazy">
+                                </a>
+                                <div class="overlay">
+                                    <div>
+                                        <span>Nhà gái</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4>Ông</h4>
+                            <h3>{{ families.ong_ngoai.ho_va_ten }}</h3>
+                            <span>Nhà gái</span>
+                        </div>
+                        <div class="col col-xs-6 col-sm-3">
+                            <div class="frame">
+                                <a href="#">
+                                    <img src="{% static 'true_love/images/home/groomsmen-bridesmaids/img-frame.png' %}"
+                                         alt="Frame"
+                                         class="img img-responsive hidden-xs" loading="lazy">
+                                    <img src="{% static 'true_love/images/home/groomsmen-bridesmaids/img-frame-sm.png' %}"
+                                         alt="Frame"
+                                         class="img img-responsive hidden-lg hidden-md hidden-sm show-xs" loading="lazy">
+                                    <img src="{{ families.ba_ngoai.hinh_anh.url }}"
+                                         alt="Image"
+                                         class="img img-responsive" loading="lazy">
+                                </a>
+                                <div class="overlay">
+                                    <div>
+                                        <span>Nhà gái</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4>Bà</h4>
+                            <h3>{{ families.ba_ngoai.ho_va_ten }}</h3>
+                            <span>Nhà gái</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of content -->
+            </section>
+            <!-- end of groomsmen-bridesmaids-->
+            <section class="rsvp section-padding"
+                     id="rsvp"
+                     style="background: url({{ wedding_info.hinh_nen_loi_chuc.url }}) no-repeat 50% 50%">
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row section-heading">
+                        <div class="col col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                            <h2>Gửi lời chúc</h2>
+                            <p>Cùng gửi những lời chúc tốt đẹp đến đôi bạn trẻ nào</p>
+                        </div>
+                    </div>
+                    <div class="row content">
+                        <div class="from-wrapper col col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                            <form id="wish-form" class="form-inline wish-form">
+                                <div class="form-group col col-sm-6">
+                                    <label class="sr-only" for="name">Tên của bạn</label>
+                                    {{ wish_form.name.as_widget }}
+                                </div>
+                                <div class="form-group col col-sm-6">
+                                    <label class="sr-only" for="phone">Số điện thoại</label>
+                                    {{ wish_form.phone.as_widget }}
+                                </div>
+                                <div class="form-group col col-sm-6">
+                                    <label class="sr-only" for="email">Email</label>
+                                    {{ wish_form.email.as_widget }}
+                                </div>
+                                <div class="form-group col col-sm-6">
+                                    <label class="sr-only" for="facebook">Link Facebook của bạn (nếu có)</label>
+                                    {{ wish_form.facebook.as_widget }}
+                                </div>
+                                <div class="form-group col col-sm-12">{{ wish_form.message.as_widget }}</div>
+                                {{ wish_form.wedding.as_widget }}
+                                <div class="form-group submit col-sm-12">
+                                    <input class="btn btn-default" type="submit" value="Gửi lời nhắn">
+                                    <a class="buttonDonate" href="#donate">Mừng cưới</a>
+                                    <div id="wish-success"
+                                         class="p-3 mb-2 text-success"
+                                         style="text-align: center;
+                                                display: None">
+                                        Gửi lời chúc thành công! Hãy <a class="buttonDonate" href="#donate">Mừng cưới</a> cho đôi tình nhân và tải lại trang để xem lời chúc nhé!
+                                    </div>
+                                    <div id="wish-error"
+                                         class="p-3 mb-2 text-danger"
+                                         style="text-align: center;
+                                                display: None">
+                                        Gửi lời chúc thất bại! Hãy thử lại sau hoặc gửi bằng cách <a class="buttonDonate" href="#donate">Mừng cưới</a> cho đôi tình nhân nhé!
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- end of content -->
+                </div>
+                <!-- end of container -->
+            </section>
+            <!-- end of rsvp -->
+            <section class="rsvp section-padding"
+                     id="rsvp"
+                     name="wishes"
+                     style="background: url({{ wedding_info.hinh_nen_loi_chuc.url }}) no-repeat 50% 50%; display: None">
+            </section>
+            {% comment %}
+
+            <section class="count-down section-padding">
+                <h2 class="hidden">Count Down</h2>
+                <div class="container">
+                    <div class="row" id="clock-1">
+                        <div class="col col-xs-3 col-sm-3 time">
+                            <div class="days_dash" data-vp-add-class="visible" data-vp-offset="0">
+                                <div class="wrapper-digit">
+                                    <div class="digit"><div class="top" style="display: none;">0</div><div class="bottom" style="display: block;">0</div></div>
+                                    <div class="digit"><div class="top" style="display: none;">0</div><div class="bottom" style="display: block;">0</div></div>
+                                    <div class="digit"><div class="top" style="display: none;">0</div><div class="bottom" style="display: block;">0</div></div>
+                                    <p class="note dash_title">Ngày</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col col-xs-3 col-sm-3 time">
+                            <div class="hours_dash" data-vp-add-class="visible" data-vp-offset="0">
+                                <div class="wrapper-digit">
+                                    <div class="digit"><div class="top" style="display: none;">0</div><div class="bottom" style="display: block;">0</div></div>
+                                    <div class="digit"><div class="top" style="display: none;">0</div><div class="bottom" style="display: block;">0</div></div>
+                                    <p class="note dash_title">Giờ</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col col-xs-3 col-sm-3 time">
+                            <div class="minutes_dash" data-vp-add-class="visible" data-vp-offset="0">
+                                <div class="wrapper-digit">
+                                    <div class=" digit"><div class="top" style="display: none;">0</div><div class="bottom" style="display: block;">0</div></div>
+                                    <div class=" digit"><div class="top" style="display: none;">0</div><div class="bottom" style="display: block;">0</div></div>
+                                    <p class="note dash_title">Phút</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col col-xs-3 col-sm-3 time">
+                            <div class="seconds_dash" data-vp-add-class="visible" data-vp-offset="0">
+                                <div class="wrapper-digit">
+                                    <div class=" digit"><div class="top" style="display: none;">0</div><div class="bottom" style="display: block;">0</div></div>
+                                    <div class=" digit"><div class="top" style="display: none;">0</div><div class="bottom" style="display: block;">0</div></div>
+                                    <p class="note dash_title">Giây</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end of container -->
+            </section>
+            {% endcomment %}
+            <section class="count-down section-padding">
+              <div class="container">
+              <ul id="countdown">
+                <li id="days">
+                  <div class="number">00</div>
+                  <div class="label">Ngày</div>
+                </li>
+                <li id="hours">
+                  <div class="number">00</div>
+                  <div class="label">Giờ</div>
+                </li>
+                <li id="minutes">
+                  <div class="number">00</div>
+                  <div class="label">Phút</div>
+                </li>
+                <li id="seconds">
+                  <div class="number">00</div>
+                  <div class="label">Giây</div>
+                </li>
+              </ul>
+              </div>
+            </section>
+            <div id="donate-modal" class="donate donate-modal">
+                <div class="donate-modal-content">
+                    <div class="donate-modal-header">
+                        <span class="donate-modal-close">×</span>
+                        <strong>
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="28"
+                                 height="28"
+                                 fill="currentColor"
+                                 class="bi bi-coin"
+                                 viewBox="0 0 16 16">
+                                <path d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z">
+                                </path>
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                                <path d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"></path>
+                            </svg>
+                            <span>Hộp mừng cưới</span>
+                        </strong>
+                    </div>
+                    <div class="donate-modal-body">
+                        <div class="donate-box">
+                            <div class="donate-box-wrapper">
+                                <div class="form-wrapper co-dau">
+                                    <form action="">
+                                        <div class="input-group">
+                                            <h2>Chúc mừng cô dâu</h2>
+                                            <h2>{{ wedding_info.co_dau.ten_rut_gon }}</h2>
+                                            <img class="qr-code-image"
+                                                 src="{% if wedding_info.co_dau.donate_box.new_qr_code_with_logo %}{{ wedding_info.co_dau.donate_box.new_qr_code_with_logo.url }} {% else %} {{ wedding_info.co_dau.donate_box.qr_code_image.url }}{% endif %}" loading="lazy">
+                                            <div class="sign-link">
+                                                <p style="color: #28a745;">Ứng dụng ngân hàng, Momo, VNPay, Napas 247</p>
+                                                <p>Hoặc</p>
+                                                <p>
+                                                    Mừng cưới cho <a href="#" class="signIn-link">Chú rể</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="form-wrapper chu-re">
+                                    <form action="">
+                                        <div class="input-group">
+                                            <h2>Chúc mừng chú rể</h2>
+                                            <h2>{{ wedding_info.chu_re.ten_rut_gon }}</h2>
+                                            <img class="qr-code-image"
+                                                 src="{% if wedding_info.chu_re.donate_box.new_qr_code_with_logo %}{{ wedding_info.chu_re.donate_box.new_qr_code_with_logo.url }} {% else %} {{ wedding_info.chu_re.donate_box.qr_code_image.url }}{% endif %}" loading="lazy">
+                                            <div class="sign-link">
+                                                <p style="color: #28a745;">Ứng dụng ngân hàng, Momo, VNPay, Napas 247</p>
+                                                <p>Hoặc</p>
+                                                <p>
+                                                    Mừng cưới cho <a href="#" class="signUp-link">Cô dâu</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="donate-logo">
+                <div class="donate-logo-secondary">
+                    <div class="donate-logo-secondary-content">Ấn để mừng cưới cho cô dâu và chú rể</div>
+                </div><a href="#donate" class="buttonDonate">
+                    <img src="{% static "true_love/images/donatebox.webp" %}" loading="lazy"></a></div>
+            <footer>
+                <div class="row">
+                    <h2>{{ wedding_info.chu_re.ten_rut_gon }} &amp; {{ wedding_info.co_dau.ten_rut_gon }}</h2>
+                    <span class="date">{{ wedding_info.ngay_to_chuc|date:'d-m-Y' }}</span>
+                </div>
+                <div class="row">
+                    <div class="container">
+                        <div class="col col-sm-6">
+                        </div>
+                        <div class="col col-sm-6">
+                            <ul>
+                                <li>
+                                    <a href="https://www.facebook.com/tuananh1406"><i class="fa fa-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/huutuananh"><i class="fa fa-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/in/huutuananh/"><i class="fa fa-linkedin"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- end of footer -->
+            <script src="{% static 'true_love/js/jquery-1.11.3.min.js' %}"></script>
+            <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
+            <script src="{% static 'true_love/js/bootstrap.min.js' %}"></script>
+            <script src="{% static 'true_love/js/jquery.appear.js' %}"></script>
+            <script src="{% static 'true_love/js/owl.carousel.min.js' %}"></script>
+            <script src="{% static 'true_love/js/jquery.shuffle.min.js' %}"></script>
+            <script src="{% static 'trangchu/js/jquery.validation.js' %}"></script>
+            <script src="{% static 'true_love/js/classie.js' %}"></script>
+            <script src="{% static 'true_love/js/nivo-lightbox.min.js' %}"></script>
+            <script src="{% static 'js/snowfall.js' %}"></script>
+            <script src="{% static 'true_love/js/common-script.js' %}"></script>
+            <script src="{% static 'true_love/js/index-script.js' %}"></script>
+            <script src="{% static 'true_love/js/animation-donate-box.js' %}"></script>
+            <script src="{% static 'true_love/js/jquery.lwtCountdown-1.0.js' %}"></script>
+            <script src="{% static 'true_love/js/count_down.js' %}"></script>
+            <script>
+                var SNOW_Picture = "{% static 'true_love/images/home/announcement/announcement-heart.png' %}" ;
+                let flakeCount = 30;
+                if(window.innerWidth <= 650) {
+                    flakeCount = 3;
+                }
+                snowFall.snow(document.getElementsByTagName('body')[0], {image : SNOW_Picture, minSize: 15, maxSize:32, flakeCount:flakeCount, maxSpeed: 3, minSpeed: 1});
+            </script>
+            <script>
+                const loi_chuc_da_gui = $('section[name="wishes"]');
+                if (loi_chuc_da_gui.css('display') === "none") {
+                    $.ajax({
+                        type: "GET",
+                        url: "/weddings/true-love/nhung-loi-chuc/{{ wedding_info.id }}",
+                        success: function (data) {
+                            loi_chuc_da_gui.html(data);
+                            loi_chuc_da_gui.show();
+                        }
+                    });
+                }
+            </script>
+            <script>
+              var targetDate = new Date("{{ wedding_info.ngay_to_chuc|date:'Y/m/d' }} 00:00:00");
+            </script>
+
+            {% comment %}
+            <script>
+                $('#clock-1').countDown({
+                    targetDate: {
+                        'day'   : {{ wedding_info.ngay_to_chuc|date:'d' }},
+                        'month' : {{ wedding_info.ngay_to_chuc|date:'m' }},
+                        'year'  : {{ wedding_info.ngay_to_chuc|date:'Y' }},
+                        'hour'  : 0,
+                        'min'   : 0,
+                        'sec'   : 0
+                    },
+                    omitWeeks: true
+                });
+            </script>
+            {% endcomment %}
+        </body>
+    </html>
+{% endspaceless %}

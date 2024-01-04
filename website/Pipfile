@@ -1,0 +1,42 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+Django = "*"
+psycopg2-binary = "*"
+django-summernote = "*"
+Pillow = "*"
+django-crispy-forms = "*"
+whitenoise = "*"
+gunicorn = "*"
+dj-database-url = "*"
+boto3 = "*"
+django-storages = "*"
+setuptools = "*"
+celery = "*"
+redis = "*"
+django-allauth = "*"
+sentry-sdk = "*"
+django-debug-toolbar = "*"
+ipython = "*"
+pip = "*"
+google-api-python-client = "*"
+google-auth-httplib2 = "*"
+google-auth-oauthlib = "*"
+python-binary-memcached = "*"
+django-bmemcached = "*"
+django-dbbackup = "*"
+pre-commit = "*"
+segno = "*"
+qrcode-artistic = "*"
+opencv-python = "*"
+numpy = "*"
+selenium = "*"
+webdriver-manager = "*"
+
+[requires]
+python_version = "3.9"

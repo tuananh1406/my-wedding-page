@@ -1,0 +1,22 @@
+---
+- name: "Đặt host name cho server ứng với file inventory"
+  hostname:
+    name: "{{ inventory_hostname }}"
+  tags:
+    - install-systemd
+
+- import_tasks: website_systemd.yml
+  become: yes
+  become_user: root
+  vars:
+    ansible_python_interpreter: "{{ PYTHON_PATH }}"
+  tags:
+    - install-systemd
+
+- import_tasks: logrotate.yml
+  become: yes
+  become_user: root
+  vars:
+    ansible_python_interpreter: "{{ PYTHON_PATH }}"
+  tags:
+    - install-systemd

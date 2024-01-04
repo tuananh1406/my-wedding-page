@@ -1,0 +1,111 @@
+﻿{% load static %}
+<html><head>
+          {# <!-- Google Tag Manager --> #}
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KVMS589');</script>
+          {# <!-- End Google Tag Manager --> #}
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+                <link type="text/css" href="{% static 'cube/css/style.css' %}" rel="stylesheet">
+    <script src="{% static 'cube/js/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'cube/js/jquery.min.js' %}"></script>
+    <title>
+            {{ tieu_de }}
+    </title>
+    <style type="text/css">
+      /* body {
+        background: #000;
+        position: relative;
+      } */
+
+      html,
+      body {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .container {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        z-index: 9999 !important;
+      }
+      #music {
+        z-index: 999999 !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+      .canvas {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      #wrapper {
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+      }
+
+      .content {
+        background: rgba(0, 0, 0, 0.8);
+        color: #f4f4f4;
+        height: 200px;
+        margin: auto;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+        width: 400px;
+        z-index: 1;
+      }
+
+      a {
+        color: #999;
+      }
+    </style>
+  </head>
+
+  <body style="">
+          {# <!-- Google Tag Manager (noscript) --> #}
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVMS589"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+          {# <!-- End Google Tag Manager (noscript) --> #}
+    <div id="wrapper">
+            <canvas id="pinkboard" class="canvas" width="1920" height="978"></canvas>
+            <canvas class="canvas" width="1920" height="978"></canvas>
+      <!-- <div class="content">
+            In photography, is the aesthetic quality of the blur produced in the out-of-focus parts of an image produced by a lens. Bokeh has been defined as "the way the lens renders out-of-focus points of light". Differences in lens aberrations and aperture shape
+            cause some lens designs to blur the image in a way that is pleasing to the eye, while others produce blurring that is unpleasant or distracting��"good" and "bad" bokeh, respectively. Bokeh occurs for parts of the scene that lie outside the
+            depth of field.
+        </div> -->
+
+        <audio src="{% static audio %}" controls="controls" autoplay="autoplay" loop="loop" id="music"></audio>
+      <div id="jsi-snow-container" class="container"></div>
+      <div class="box">
+        <ul class="minbox">
+                {% for duong_dan_anh in ds_anh_100 %}
+                <li style="background: url({% static duong_dan_anh %}) no-repeat 0 0;"></li>
+          {% endfor %}
+        </ul>
+        <ol class="maxbox">
+                {% for duong_dan_anh in ds_anh_400 %}
+                <li style="background: url({% static duong_dan_anh %}) no-repeat 0 0;"></li>
+                {% endfor %}
+        </ol>
+      </div>
+    </div>
+
+    <script src="{% static anh_nen %}"></script>
+
+</body></html>

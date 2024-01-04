@@ -1,0 +1,24 @@
+---
+- hosts: all
+  become: yes
+  become_user: root
+  become_method: sudo
+  roles:
+    - {role: webserver, tags: ["webserver"]}
+  environment:
+    GIT_SSL_NO_VERIFY: 1
+    LC_ALL: C.UTF-8
+    LANG: C.UTF-8
+  vars:
+    PYTHON_PATH: /usr/bin/python3
+    PIP_PATH: /usr/bin/pip3
+    PYTHON_VERSION: "3.9.8"
+    PYTHON_CHECKSUM: "md5:d4875c1832c8f757280794f6d5e9c95f"
+    DOMAIN: "yourdomain"
+
+    GIT_REPO: "your_ssh_git_repo"
+    GIT_BRANCH: "master"
+    CODE_PATH: "/src/code"
+
+    SYSTEM_LANG: "vi_VN.UTF-8"
+    SYSTEM_LANGUAGE: "vi_VN"
